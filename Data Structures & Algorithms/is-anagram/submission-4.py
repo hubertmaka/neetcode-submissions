@@ -1,0 +1,16 @@
+import string 
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        counter = [0] * 26
+        for i in range(len(s)):
+            print(ord(s[i]))
+            counter[ord(s[i]) - ord('a')] += ord(s[i])
+            counter[ord(t[i]) - ord('a')] -= ord(t[i])
+        
+        for i in counter:
+            if i != 0:
+                return False
+        return True
